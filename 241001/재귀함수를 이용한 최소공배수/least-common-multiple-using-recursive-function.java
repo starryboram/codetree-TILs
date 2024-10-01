@@ -4,26 +4,34 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
+    public static final int MAX_N = 10;
+    public static int n;
+    public static int[] arr = new int[MAX_N + 1];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        int[] arr = new int[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i=0; i<n; i++) {
+        for(int i=1; i<=n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int lcm = arr[0];
-        for(int i=0; i<n; i++) {
-            int baseNum = getGCD(lcm, arr[i]);
-            lcm = lcm * arr[i] / baseNum;
-        }
-
+        int lcm = getLCMAll(n);
         System.out.println(lcm);
+    }
+
+    private static int getLCMAll(int index) {
+        if(index == 1) {
+            return arr[1];
+        }
+        return getLCM(getLCMAll(index-1), arr[index]);
     }
 
     private static int getGCD(int n, int m) {
         if(m==0) return n;
         return getGCD(m, n%m);
+    }
+
+    private static int getLCM(int n, int m) {
+        return n * m / getGCD(n,m);
     }
 }
