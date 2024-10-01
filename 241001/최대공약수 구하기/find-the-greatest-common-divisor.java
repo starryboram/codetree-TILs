@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-   public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
@@ -14,14 +14,13 @@ public class Main {
         System.out.println(num);
     }
 
+    // 유클리드 호제법을 사용한 GCD 계산
     private static int getGCD(int n, int m) {
-        int maxNum = Math.min(n, m);
-        int ans = 1;
-        for(int i=1; i<=maxNum; i++) {
-            if(n%i==0 && m%i==0) {
-                ans = i;
-            }
+        while (m != 0) {
+            int temp = m;
+            m = n % m;
+            n = temp;
         }
-        return ans;
+        return n;
     }
 }
