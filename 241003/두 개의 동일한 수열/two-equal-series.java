@@ -16,17 +16,19 @@ public class Main {
         for(int i=0; i<n; i++) {
             B[i] = Integer.parseInt(st.nextToken());
         }
-
-        Arrays.sort(A);
-        Arrays.sort(B);
+        Set<Integer> set = new HashSet<>();
+        for(int num : A) {
+            set.add(num);
+        }
+        
         boolean flag = true;
-        for(int i=0; i<n; i++) {
-            if(A[i] != B[i]) {
+        for(int num: B) {
+            if(!set.contains(num)) {
                 flag = false;
                 break;
             }
         }
-
+        
         System.out.println(flag ? "Yes" : "No");
     }
 }
