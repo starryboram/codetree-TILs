@@ -24,8 +24,8 @@ public class Main {
         int totalDayOfTwo = getTotalDay(m2, d2);
         String ans = null;
         if(totalDayOfOne >= totalDayOfTwo) {
-            int day = totalDayOfOne - totalDayOfTwo;
-            ans = DayOfTheWeek[Math.abs(day % DayOfTheWeek.length - DayOfTheWeek.length)];
+            int day = (totalDayOfOne - totalDayOfTwo) % DayOfTheWeek.length;
+            ans = day == 0 ? DayOfTheWeek[day] : DayOfTheWeek[Math.abs(day - DayOfTheWeek.length)]; 
         } else {
             int day = totalDayOfTwo - totalDayOfOne;
             ans = DayOfTheWeek[day % DayOfTheWeek.length];
