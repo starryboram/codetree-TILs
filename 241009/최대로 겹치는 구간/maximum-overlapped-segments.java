@@ -4,38 +4,49 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.Scanner;
+
 
 public class Main {
-    static class Panel {
-        int start;
-        int end;
+    public static final int MAX_N = 100;
+    public static final int MAX_R = 200;
+    public static final int OFFSET = 100;
 
-        public Panel(int start, int end) {
-            int base = 100;
-            this.start = base + start;
-            this.end = base + end;
-        }
-    }
+    public static int n;
+    public static int[] x1 = new int[MAX_N];
+    public static int[] x2 = new int[MAX_N];
 
-    static final int MAX = 200;
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        List<Panel> list = new ArrayList<>();
-        for(int i=0; i<n; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            list.add(new Panel(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+    public static int[] checked = new int[MAX_R + 1];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 입력
+        n = sc.nextInt();
+
+        for(int i = 0; i < n; i++) {
+            x1[i] = sc.nextInt();
+            x2[i] = sc.nextInt();
+
+            // OFFSET을 더해줍니다.
+            x1[i] += OFFSET;
+            x2[i] += OFFSET;
         }
 
-        int[] line = new int[MAX];
-        int ans = 0;
-        for(int i=0; i<list.size(); i++) {
-            Panel panel = list.get(i);
-            for(int j=panel.start; j<panel.end; j++) {
-                line[j]++;
-                ans = Math.max(ans, line[j]);
-            }
-        }
-        System.out.println(ans);
+        // 구간을 칠해줍니다.
+        // 구간 단위로 진행하는 문제이므로
+        // x2[i]에 등호가 들어가지 않음에 유의합니다.
+        for(int i = 0; i < n; i++)
+            for(int j = x1[i]; j < x2[i]; j++)
+                checked[j]++;
+        
+        // 최댓값을 구합니다.
+        int max = 0;
+        for(int i = 0; i <= MAX_R; i++)
+            if(checked[i] > max)
+                max = checked[i];
+        
+        // 출력
+        System.out.print(max);
     }
 }
