@@ -18,7 +18,7 @@ public class Main {
         System.out.println(n);
     }
 
-    private static int getNumberToBinary(long n, int b) {
+    private static long getNumberToBinary(long n, int b) {
         // 10 진수인 n 을 b 진수로 바꾸기
         List<Integer> list = new ArrayList<>();
         while (n != 0) {
@@ -30,7 +30,7 @@ public class Main {
         for(int i=list.size()-1; i>=0; i--) {
             sb.append(list.get(i));
         }
-        return Integer.parseInt(sb.toString());
+        return Long.parseLong(sb.toString());
     }
 
     private static int getNumberByBinary(long n, int a) {
