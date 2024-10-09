@@ -28,18 +28,14 @@ public class Main {
         }
 
         int[] line = new int[MAX];
-        list.forEach(panel -> {
-            for(int i=panel.start; i<panel.end; i++) {
-                line[i]++; 
-            }
-        });
-        
         int ans = 0;
-        for(int i=0; i<line.length; i++) {
-            ans = Math.max(ans, line[i]);
+        for(int i=0; i<list.size(); i++) {
+            Panel panel = list.get(i);
+            for(int j=panel.start; j<panel.end; j++) {
+                line[i]++;
+                ans = Math.max(ans, line[i]);
+            }
         }
-
         System.out.println(ans);
-
     }
 }
