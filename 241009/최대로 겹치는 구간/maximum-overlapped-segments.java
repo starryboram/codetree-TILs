@@ -32,8 +32,8 @@ public class Main {
         for(int i=0; i<list.size(); i++) {
             Panel panel = list.get(i);
             for(int j=panel.start; j<panel.end; j++) {
-                line[i]++;
-                ans = Math.max(ans, line[i]);
+                line[j]++;
+                ans = Math.max(ans, line[j]);
             }
         }
         System.out.println(ans);
