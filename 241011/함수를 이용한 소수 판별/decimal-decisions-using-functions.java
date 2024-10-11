@@ -16,16 +16,16 @@ public class Main {
 
     private static int calculateSum(int num1, int num2) {
         int sum = 0;
-        for (int i = num1; i < num2 +1 ; i++) {
+        for (int i = num1; i <= num2; i++) {
             if(isPrime(i)) sum += i;
         }
         return sum;
     }
 
     private static boolean isPrime(int n) {
-        for(int i = 2; i < n/2 + 1; i++)
-            if(n % i == 0) return false;
-
+        for (int i = 2; i <= Math.sqrt(n); i++) {  // 제곱근까지만 검사
+            if (n % i == 0) return false;          // 나누어 떨어지면 소수가 아님
+        }
         return true;
     }
 }
