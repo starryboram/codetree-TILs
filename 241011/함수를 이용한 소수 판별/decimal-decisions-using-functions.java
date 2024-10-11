@@ -7,6 +7,7 @@ public class Main {
             String[] str = br.readLine().split(" ");
             int num1 = Integer.parseInt(str[0]);
             int num2 = Integer.parseInt(str[1]);
+
             System.out.println(calculateSum(num1, num2));
 
         } catch (Exception e) {
@@ -23,6 +24,7 @@ public class Main {
     }
 
     private static boolean isPrime(int n) {
+        if(n < 2) return false;
         for (int i = 2; i <= Math.sqrt(n); i++) {  // 제곱근까지만 검사
             if (n % i == 0) return false;          // 나누어 떨어지면 소수가 아님
         }
