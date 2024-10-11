@@ -12,17 +12,12 @@ public class Main {
     }
 
     private static boolean calYear(int num) {
-        if (num%4 != 0) {
-            return false;
-        } else {
-            if (num < 400) {
+        if (num%4 == 0) {
+            if ((num%100 == 0) && (num%400 != 0)) {
                 return false;
-            } else {
-                if ((num%100 == 0) && (num%40 != 0)) {
-                    return false;
                 }
-            }
+            return true;
         }
-        return true;
+        return false;
     }
 }
