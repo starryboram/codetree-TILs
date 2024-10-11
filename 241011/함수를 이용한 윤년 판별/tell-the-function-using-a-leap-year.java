@@ -15,8 +15,12 @@ public class Main {
         if (num%4 != 0) {
             return false;
         } else {
-            if ((num%100 == 0) && (num%40 != 0)) {
-                return false;
+            if (num < 400) {
+                return true;
+            } else {
+                if ((num%100 == 0) && (num%40 != 0)) {
+                    return false;
+                }
             }
         }
         return true;
