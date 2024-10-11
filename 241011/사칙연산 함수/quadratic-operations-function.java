@@ -16,19 +16,17 @@ public class Main {
         }
     }
 
-    private static void(int num1, String sign, int num2) {
-        if ((sign != "+") && (sign != "-") && (sign != "/") && (sign != "*")) {
-            System.out.println("False");
+    private static void function(int num1, String sign, int num2) {
+        if(sign.equals("+")) {
+            System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1+num2));
+        } else if (sign.equals("-")) {
+            System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1-num2));
+        } else if (sign.equals("/")) {
+            System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1/num2));
+        } else if (sign.equals("*")) {
+            System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1*num2));
         } else {
-            if(sign == "+") {
-                System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1+num2));
-            } else if (sign == "-") {
-                System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1-num2));
-            } else if (sign == "/") {
-                System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1/num2));
-            } else {
-                System.out.println(num1 + " " + sign + " " + num2 + " = " + (num1*num2));
-            }
+            System.out.println("False");
         }
     }
 }
