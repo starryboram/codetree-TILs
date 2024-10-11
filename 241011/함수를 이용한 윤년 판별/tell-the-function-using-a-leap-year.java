@@ -16,7 +16,7 @@ public class Main {
             return false;
         } else {
             if (num < 400) {
-                return true;
+                return false;
             } else {
                 if ((num%100 == 0) && (num%40 != 0)) {
                     return false;
