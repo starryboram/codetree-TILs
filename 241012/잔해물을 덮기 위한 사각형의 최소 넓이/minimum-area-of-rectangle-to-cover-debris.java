@@ -59,8 +59,11 @@ public class Main {
                 }
             }
         }
-
-        return (maxX - minX + 1) * (maxY - minY + 1);
+        if(minX == Integer.MAX_VALUE && minY == Integer.MAX_VALUE) {
+            return 0;
+        } else {
+            return (maxX - minX + 1) * (maxY - minY + 1);
+        }
     }
 
     private static void colorQuad(Quadrangle quad, int[][] board, int num) {
