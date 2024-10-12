@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
-    private static final int OFFSET = 1000;
+    private static final int OFFSET = 1000 * 1000;
     private static final int MAX = OFFSET*2;
 
     public static void main(String[] args) throws IOException {
