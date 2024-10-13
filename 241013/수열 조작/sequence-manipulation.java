@@ -7,14 +7,13 @@ public class Main {
         int num = Integer.parseInt(br.readLine());
 
         Deque<Integer> dq = new ArrayDeque<>();
-        for (int i = 1 ; i < num; i++ ){
+        for (int i = 1 ; i <= num; i++ ){
             dq.addLast(i);
         }
 
         while (dq.size() > 1) {
             dq.pollFirst();
-            int dqNum = dq.pollLast();
-            dq.addLast(dqNum);
+            dq.addLast(dq.pollFirst());
         }
         System.out.println(dq.peekFirst());
     }
