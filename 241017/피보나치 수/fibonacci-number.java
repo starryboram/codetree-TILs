@@ -8,7 +8,7 @@ public class Main {
     }
 
     public static int fibbo(int n) {
-        int[] arr = new int[45];
+        int[] arr = new int[n+2];
         arr[0] = 0;
         arr[1] = 1;
 
