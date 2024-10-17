@@ -8,13 +8,14 @@ public class Main {
         System.out.println(step(num));
     }
 
-    public static long step(int n) {
-        long arr[] = new long[n+4];
+    public static int step(int n) {
+        int arr[] = new int[1000];
+        arr[0] = 0;
+        arr[1] = 1;
         arr[2] = 1;
         arr[3] = 1;
-        arr[4] = 1;
 
-        for (int i = 5; i <= n ; i++) {
+        for (int i = 4; i <= n ; i++) {
             arr[i] = arr[i-2] + arr[i-3];
         }
         return arr[n]%10007;
