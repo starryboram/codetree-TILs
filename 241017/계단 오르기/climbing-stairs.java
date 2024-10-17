@@ -9,9 +9,9 @@ public class Main {
     }
 
     public static int step(int n) {
-        int arr[] = new int[1000];
+        int arr[] = new int[1001];
         arr[0] = 0;
-        arr[1] = 1;
+        arr[1] = 0;
         arr[2] = 1;
         arr[3] = 1;
 
