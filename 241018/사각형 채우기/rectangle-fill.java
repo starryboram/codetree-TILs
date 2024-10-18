@@ -18,9 +18,9 @@ public class Main {
 
         if (n >= 4){
             for(int i = 4; i <= n ; i++) {
-                arr[i] = arr[i-1] + arr[i-2];
+                arr[i] = (arr[i-1] + arr[i-2])%10007;
             }
         }
-        return (arr[n] % 10007);
+        return arr[n];
     }
 }
