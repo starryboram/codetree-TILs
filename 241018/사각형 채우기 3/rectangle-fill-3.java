@@ -10,13 +10,12 @@ public class Main {
     public static int fillInSquare(int n) {
         int[] arr = new int[n+2];
 
-        arr[0] = 1;
         arr[1] = 2;
         arr[2] = 7;
 
         if (n>=3) {
             for (int i = 3 ; i <= n ; i++) {
-                arr[i] = (2 * arr[i-1] + 3 * arr[i-2])%1000000007;
+                arr[i] = (2 * arr[i-1] + 4 * arr[i-2])%1000000007;
             }
         }
         return arr[n];
