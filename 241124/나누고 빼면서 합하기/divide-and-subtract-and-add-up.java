@@ -20,15 +20,14 @@ public class Main {
     public static int function(int m, int[] A) {
         int answer = 0;
         while (m > 1) {
-            m -= 1; // 배열 인덱스 조정
-            answer += A[m]; // 먼저 m번째 원소를 더하고, m을 조정합니다.
+            answer += A[m-1];
             if (m % 2 == 0) {
                 m /= 2;
             } else {
                 m -= 1;
             }
         }
-        answer += A[0]; // m이 1이 되었을 때, 수열의 첫 번째 원소를 추가
+        answer += A[0];
         return answer;
     }
 }
