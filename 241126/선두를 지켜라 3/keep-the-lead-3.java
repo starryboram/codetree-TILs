@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class Main {
     static int N,M;
-    static int MAX = 1001;
+    static int MAX = 1000 * 1000;
     public static class HallOfFame {
         List<String> list;
 
@@ -50,8 +50,8 @@ public class Main {
         M = Integer.parseInt(st.nextToken()); // B
 
         HallOfFame[] hallOfFame = new HallOfFame[MAX]; // 시간 마다의 명예의전당에 기록된 사람
-        int[] distA = new int[MAX]; // 시간 마다의 A 가 이동한 총 거리
-        int[] distB = new int[MAX]; // 시간 마다의 B 가 이동한 총 거리
+        int[] distA = new int[MAX + 1]; // 시간 마다의 A 가 이동한 총 거리
+        int[] distB = new int[MAX + 1]; // 시간 마다의 B 가 이동한 총 거리
 
         run(br, distA, N);
         run(br, distB, M);
