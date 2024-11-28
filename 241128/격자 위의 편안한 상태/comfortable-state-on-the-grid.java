@@ -14,7 +14,7 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        boolean[][] board = new boolean[N][M];
+        boolean[][] board = new boolean[N][N];
 
         StringBuilder sb = new StringBuilder();
         for(int i=0; i<M; i++) {
@@ -49,6 +49,6 @@ public class Main {
     }
 
     private static boolean isRange(int nr, int nc) {
-        return (0 <= nr && nr < N && 0 <= nc && nc < M);
+        return (0 <= nr && nr < N && 0 <= nc && nc < N);
     }
 }
