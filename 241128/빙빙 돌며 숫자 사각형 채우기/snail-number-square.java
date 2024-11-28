@@ -31,7 +31,7 @@ public class Main {
             nowX = nowX + dx[dirNum];
             nowY = nowY + dy[dirNum];
 
-            if(arr[nowX][nowY] != 0) {
+            if(!inRange(nowX, nowY) || arr[nowX][nowY] != 0) {
                 break;
             } else {
                 arr[nowX][nowY] = cnt++;
