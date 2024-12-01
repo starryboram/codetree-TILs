@@ -14,17 +14,23 @@ public class Main {
         int[] monthArr = new int[]{0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int countDay = 0;
 
-        for (int i = m1 ; i < m2 ; i++) {
-            d2 += monthArr[i];
+        if(m1 == m2) {
+            countDay = d2 - d1 + 1;
+        } else {
+            countDay += monthArr[m1] - d1 + d2 + 1;
+            for (int i = m1 + 1; i < m2; i++) {
+                countDay += monthArr[i];
+            }
         }
-        
-        countDay = d2 - d1;
         System.out.println(calDay(day, countDay));
-
     }
 
     public static int calDay(String day, int countDay) {
-        int calDate = countDay/7 + 1;
-        return day == "Mon" && countDay%7 == 0 ? calDate + 1 : calDate;
+        String[] days = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+        int startIndex = Arrays.asList(days).indexOf(day);
+        int calDate = countDay / 7;
+        int remainder = countDay % 7;
+        int extra = ((startIndex + remainder - 1) % 7 < startIndex) ? 1 : 0;
+        return calDate + extra;
     }
 }
