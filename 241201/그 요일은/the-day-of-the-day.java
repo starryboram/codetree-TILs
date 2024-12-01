@@ -29,6 +29,6 @@ public class Main {
         String[] days = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         int startIndex = Arrays.asList(days).indexOf(day);  // 시작 요일의 인덱스
         int answer = (countDay - startIndex - 1) / 7;
-        return answer + 1;
+        return (countDay - startIndex - 1 ) < 0 ? answer : answer + 1;
     }
 }
