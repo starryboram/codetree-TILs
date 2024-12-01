@@ -24,11 +24,11 @@ public class Main {
         }
         System.out.println(calDay(day, countDay));
     }
-    
+
     public static int calDay(String day, int countDay) {
         String[] days = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         int startIndex = Arrays.asList(days).indexOf(day);  // 시작 요일의 인덱스
-        int answer = (countDay - startIndex) / 7;
+        int answer = (countDay - startIndex - 1) / 7;
         return answer + 1;
     }
 }
