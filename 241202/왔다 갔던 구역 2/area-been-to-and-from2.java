@@ -12,15 +12,16 @@ public class Main {
             String[] arr = br.readLine().split(" ");
             int a = Integer.parseInt(arr[0]);
             String b = arr[1];
+
             if(b.equals("L")) {
-                for (int j = 0 ; j < a ; j++) {
+                for (int j = 0; j < a ; j++) {
                     intArr[place - j] += 1;
                 }
                 place -= a;
             } else {
-               for (int k = 0 ; k < a; k++) {
-                   intArr[place + k] += 1;
-               }
+                for (int k = 0 ; k < a; k++) {
+                    intArr[place + k] += 1;
+                }
                 place += a;
             }
         }
