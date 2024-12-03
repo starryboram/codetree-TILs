@@ -31,37 +31,35 @@ public class Main {
     }
 
     private static int moveArr(String[] orders, int[][] arr) {
-        int cnt = 0;
         int dir = 3; // 북쪽
         int x = N/2;
         int y = N/2;
+        int cnt = arr[x][y];
+
         for(int i=0; i<T; i++) {
-            cnt += arr[x][y];
-
             String order = orders[i];
-            dir = chooseDir(dir, order);
 
-            if(!order.equals("F")) {
-                continue;
-            }
-            
-            int nx = 0;
-            int ny = 0;
-            while(true) {
-                nx = x + dx[dir];
-                ny = y + dy[dir];
-                if(inRange(nx ,ny)) {
+            switch (order) {
+                case "L": {
+                    dir = L[dir];
                     break;
-                } else {
-                    i++;
-                    if(i>=T) {
-                        break;
+                }
+                case "R": {
+                    dir = R[dir];
+                    break;
+                }
+                case "F": {
+
+                    int nx = x + dx[dir];
+                    int ny = y + dy[dir] ;
+
+                    if(inRange(nx ,ny)) {
+                        x = nx;
+                        y = ny;
+                        cnt += arr[x][y];
                     }
                 }
             }
-
-            x = nx;
-            y = ny;
         }
 
         return cnt;
@@ -69,20 +67,5 @@ public class Main {
 
     private static boolean inRange(int x, int y) {
         return (0 <= x && x < N && 0 <= y && y < N);
-    }
-
-    private static int chooseDir(int dir, String order) {
-
-        switch (order) {
-            case "L": {
-                dir = L[dir];
-                break;
-            }
-            case "R": {
-                dir = R[dir];
-                break;
-            }
-        }
-        return dir;
     }
 }
