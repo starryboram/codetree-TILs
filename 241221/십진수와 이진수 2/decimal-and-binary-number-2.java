@@ -24,7 +24,7 @@ public class Main {
     }
 
     public static void transferDecimelToBinary(int num) {
-        int[] intArr = new int[10];
+        int[] intArr = new int[100];
         int cnt = 0;
 
         while(true) {
