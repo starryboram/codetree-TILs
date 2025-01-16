@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     static int N,M;
@@ -27,7 +28,7 @@ public class Main {
         for(int i=0; i<N-M+1; i++) {
             // i~i+M 까지의 수열
             int[] result = Arrays.copyOfRange(arrA, i, i + M);
-            if(duplicationCheckSet.contains(Arrays.stream(result).boxed().toList())) {
+            if(duplicationCheckSet.contains(Arrays.stream(result).boxed().collect(Collectors.toList()))) {
                 cnt++;
             }
         }
@@ -37,7 +38,7 @@ public class Main {
 
     private static void makeBeautifulArr(int digit, int[] beautifulArr, boolean[] checkArr, Set<List<Integer>> duplicationCheckSet) {
         if(digit == M) {
-            duplicationCheckSet.add(Arrays.stream(beautifulArr).boxed().toList());
+            duplicationCheckSet.add(Arrays.stream(beautifulArr).boxed().collect(Collectors.toList()));
             return;
         }
 
