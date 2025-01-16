@@ -33,15 +33,15 @@ public class Main {
         int maxCoin = 0;
         for(int i=0; i<N; i++) {
             for(int j=0; j<N; j++) { // 첫번째 격자의 위치를 구한 것.
-                if(inRange(i,j)) {
+                if(!inRange(i,j)) {
                     continue;
                 }
                 for(int k=i; k<N; k++) {
                     for(int l=j; l<N; l++) { // 두번째 격자의 위치
-                        if(inRange(k,l) || isOverlap(i,j,k,l)) {
+                        if(!inRange(k,l) || isOverlap(i,j,k,l)) {
                             continue;
                         }
-                        return Math.max(maxCoin, countCoin(board, i, j, k, l));
+                        maxCoin = Math.max(maxCoin, countCoin(board, i, j, k, l));
                     }
                 }
             }
@@ -65,14 +65,14 @@ public class Main {
 
     private static boolean checkPlace(int nowX, int nowY, int x, int y) {
         if(nowX == x) {
-            return nowY + sizeY -1 >= y;
+            return y <= nowY && nowY < y + sizeY;
         }
         return false;
     }
 
     private static boolean isOverlap(int x1, int y1, int x2, int y2) {
         if(x1==x2) {
-            return y1 + sizeY - 1 >= y2;
+            return y1 + sizeY -1 >= y2;
         }
         return false;
     }
