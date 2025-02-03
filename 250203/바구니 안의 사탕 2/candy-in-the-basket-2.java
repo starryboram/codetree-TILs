@@ -14,6 +14,7 @@ public class Main {
         // sliding window
         int value = 0;
         for(int j=0; j<K*2+1; j++) {
+            if(j >= ARR_SIZE) break;
             value += arr[j];
         }
 
